@@ -3,8 +3,8 @@ import 'dart:math';
 
 class Particle extends CustomPainter {
   final Color color;
-  final double xCoor;
-  final double yCoor;
+  double xCoor;
+  double yCoor;
   final double opacity;
   final double size;
 
@@ -18,8 +18,22 @@ class Particle extends CustomPainter {
     this.size,
   });
 
+  void move() {
+    this.xCoor += random.nextDouble();
+    this.yCoor += random.nextDouble();
+  }
+
   @override
-  void paint(Canvas canvas, Size size) {}
+  void paint(Canvas canvas, Size size) {
+    Paint line = new Paint();
+    line.strokeCap = StrokeCap.round;
+    line.color = this.color;
+    line.strokeWidth = this.size;
+    Offset center = new Offset(xCoor, yCoor);
+    line.style = PaintingStyle.fill;
+
+    canvas.drawCircle(center, this.size, line);
+  }
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
