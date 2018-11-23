@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:particle/particle.dart';
+import 'package:flutter/animation.dart';
 
 void main() => runApp(new MyApp());
 
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
     size: 3.0,
   );
 
-  void _incrementCounter() {
+  void _particleMove() {
     setState(() {
       a.move();
     });
@@ -65,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
         foregroundPainter: a,
       ),
       floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _particleMove,
       ),
     );
   }
