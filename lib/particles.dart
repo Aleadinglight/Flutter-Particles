@@ -24,13 +24,13 @@ class ParticlesState extends State<Particles>
   void initState() {
     super.initState();
     animationController = AnimationController(
-      duration: Duration(milliseconds: 2000),
+      duration: Duration(milliseconds: 4000),
       vsync: this,
     );
 
     animationController.addListener(() {
       setState(() {
-        a.move();
+        this.a.move();
       });
     });
     animationController.repeat();
@@ -44,14 +44,16 @@ class ParticlesState extends State<Particles>
 
   @override
   Widget build(BuildContext context) {
-    return new MovingParticle(a);
+    return new MovingParticle();
   }
 }
 
 class MovingParticle extends AnimatedWidget {
   final Particle a;
 
-  MovingParticle({this.a});
+  MovingParticle({
+    this.a,
+  });
 
   @override
   Widget build(BuildContext context) {
