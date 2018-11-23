@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:particle/particle.dart';
-import 'package:flutter/animation.dart';
+import 'package:particle/particles.dart';
 
 void main() => runApp(new MyApp());
 
@@ -45,29 +45,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Particle a = new Particle(
-    color: Colors.black,
-    xCoor: 200.0,
-    yCoor: 300.0,
-    opacity: 1.0,
-    size: 3.0,
-  );
-
-  void _particleMove() {
-    setState(() {
-      a.move();
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: CustomPaint(
-        foregroundPainter: a,
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _particleMove,
-      ),
-    );
+    return new Particles();
   }
 }
