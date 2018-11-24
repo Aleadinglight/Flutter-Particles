@@ -37,7 +37,7 @@ class Particle extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
+  bool shouldRepaint(Particle oldDelegate) {
+    return this.xCoor != oldDelegate.xCoor;
   }
 }

@@ -44,22 +44,23 @@ class ParticlesState extends State<Particles>
 
   @override
   Widget build(BuildContext context) {
-    return new MovingParticle();
-  }
-}
-
-class MovingParticle extends AnimatedWidget {
-  final Particle a;
-
-  MovingParticle({
-    this.a,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    a.move();
     return new CustomPaint(
       foregroundPainter: a,
     );
-  }
 }
+
+// class MovingParticle extends AnimatedWidget {
+//   final Particle a;
+
+//   MovingParticle({
+//     this.a,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     a.move();
+//     return new CustomPaint(
+//       foregroundPainter: a,
+//     );
+//   }
+// }
