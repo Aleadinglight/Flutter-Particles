@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:particle/particle.dart';
 import 'package:flutter/animation.dart';
+import 'package:particle/particle.dart';
+import 'package:particle/drawPoints.dart';
 
 class Particles extends StatefulWidget {
   Particles({Key key}) : super(key: key);
@@ -19,6 +20,7 @@ class ParticlesState extends State<Particles>
     opacity: 1.0,
     size: 3.0,
   );
+  List<Particle> pointsList = new List();
 
   @override
   void initState() {
@@ -44,9 +46,11 @@ class ParticlesState extends State<Particles>
 
   @override
   Widget build(BuildContext context) {
-    print("did rebuild");
+    pointsList.add(a);
     return new CustomPaint(
-      foregroundPainter: a,
+      foregroundPainter: displayPoints(
+        pointsList: pointsList,
+      ),
     );
   }
 }
