@@ -44,9 +44,11 @@ class ParticlesState extends State<Particles>
 
   @override
   Widget build(BuildContext context) {
+    print("did rebuild");
     return new CustomPaint(
       foregroundPainter: a,
     );
+  }
 }
 
 // class MovingParticle extends AnimatedWidget {

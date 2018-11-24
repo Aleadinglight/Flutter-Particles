@@ -21,7 +21,6 @@ class Particle extends CustomPainter {
   void move() {
     this.xCoor += random.nextDouble();
     this.yCoor += random.nextDouble();
-    print(yCoor);
   }
 
   @override
