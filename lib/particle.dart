@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-class Particle extends CustomPainter {
+class Particle {
   final Color color;
   double xCoor;
   double yCoor;
@@ -21,22 +21,5 @@ class Particle extends CustomPainter {
   void move() {
     this.xCoor += random.nextDouble();
     this.yCoor += random.nextDouble();
-  }
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint line = new Paint();
-    line.strokeCap = StrokeCap.round;
-    line.color = this.color;
-    line.strokeWidth = this.size;
-    Offset center = new Offset(xCoor, yCoor);
-    line.style = PaintingStyle.fill;
-
-    canvas.drawCircle(center, this.size, line);
-  }
-
-  @override
-  bool shouldRepaint(Particle oldDelegate) {
-    return this.xCoor != oldDelegate.xCoor;
   }
 }
