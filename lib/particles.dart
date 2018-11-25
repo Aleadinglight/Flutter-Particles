@@ -11,6 +11,8 @@ class Particles extends StatefulWidget {
 
 class ParticlesState extends State<Particles>
     with SingleTickerProviderStateMixin {
+  // When millisecondPasted reach a value, we change the particle direction
+  int millisecondPasted;
   Animation animation;
   AnimationController animationController;
   Particle a = new Particle(
@@ -32,6 +34,11 @@ class ParticlesState extends State<Particles>
 
     animationController.addListener(() {
       setState(() {
+        if (millisecondPasted == 5000) {
+          this.a.getRandomDirection();
+          millisecondPasted = 0;
+        }
+        millisecondPasted += 100;
         this.a.move();
       });
     });
