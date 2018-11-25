@@ -26,7 +26,7 @@ class ParticlesState extends State<Particles>
   void initState() {
     super.initState();
     animationController = AnimationController(
-      duration: Duration(milliseconds: 4000),
+      duration: Duration(milliseconds: 100),
       vsync: this,
     );
 

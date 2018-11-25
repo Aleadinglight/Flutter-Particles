@@ -7,7 +7,8 @@ class Particle {
   double yCoor;
   final double opacity;
   final double size;
-
+  double xDirection;
+  double yDirection;
   Random random = new Random();
 
   Particle({
@@ -18,8 +19,13 @@ class Particle {
     this.size,
   });
 
+  void getRandomDirection() {
+    xDirection = random.nextDouble();
+    yDirection = random.nextDouble();
+  }
+
   void move() {
-    this.xCoor += random.nextDouble();
-    this.yCoor += random.nextDouble();
+    this.xCoor += this.xDirection;
+    this.yCoor += this.yDirection;
   }
 }
