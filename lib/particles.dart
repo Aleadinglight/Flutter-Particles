@@ -32,16 +32,27 @@ class ParticlesState extends State<Particles>
       vsync: this,
     );
 
+    // Add the point the PointLists
+    pointsList.add(a);
+
+    // Add listener
     animationController.addListener(() {
       setState(() {
+        // Get new random direction for each point after 5s
         if (millisecondPasted == 5000) {
-          this.a.getRandomDirection();
+          for (var point in pointsList) {
+            point.getRandomDirection();
+          }
           millisecondPasted = 0;
         }
+        // Make the particle moves
         millisecondPasted += 100;
-        this.a.move();
+        for (var point in pointsList) {
+          point.move();
+        }
       });
     });
+    // Repeat the animation
     animationController.repeat();
   }
 
@@ -53,7 +64,6 @@ class ParticlesState extends State<Particles>
 
   @override
   Widget build(BuildContext context) {
-    pointsList.add(a);
     return new CustomPaint(
       foregroundPainter: displayPoints(
         pointsList: pointsList,
