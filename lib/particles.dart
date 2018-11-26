@@ -31,10 +31,10 @@ class ParticlesState extends State<Particles>
       duration: Duration(milliseconds: 100),
       vsync: this,
     );
-
+    // Set sec pasted to 0
+    millisecondPasted = 0;
     // Add the point the PointLists
     pointsList.add(a);
-
     // Add listener
     animationController.addListener(() {
       setState(() {
@@ -65,7 +65,7 @@ class ParticlesState extends State<Particles>
   @override
   Widget build(BuildContext context) {
     return new CustomPaint(
-      foregroundPainter: displayPoints(
+      foregroundPainter: DisplayPoints(
         pointsList: pointsList,
       ),
     );

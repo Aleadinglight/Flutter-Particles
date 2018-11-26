@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:particle/particle.dart';
 import 'dart:math';
 
-class displayPoints extends CustomPainter {
+class DisplayPoints extends CustomPainter {
   final List<Particle> pointsList;
 
-  displayPoints({
+  DisplayPoints({
     this.pointsList,
   });
 
