@@ -31,29 +31,29 @@ class ParticlesState extends State<Particles>
       duration: Duration(milliseconds: 100),
       vsync: this,
     );
-    // Set sec pasted to 0
-    millisecondPasted = 0;
+    // Set sec pasted to 5000 so we can call getRandomDirection at the beginning
+    millisecondPasted = 5000;
     // Add the point the PointLists
     pointsList.add(a);
     // Add listener
     animationController.addListener(() {
       setState(() {
         // Get new random direction for each point after 5s
-        // if (millisecondPasted == 5000) {
-        //   for (var point in pointsList) {
-        //     point.getRandomDirection();
-        //   }
-        //   millisecondPasted = 0;
-        // }
-        // // Make the particle moves
-        // millisecondPasted += 100;
+        if (millisecondPasted == 5000) {
+          for (var point in pointsList) {
+            point.getRandomDirection();
+          }
+          millisecondPasted = 0;
+        }
+        // Make the particle moves
+        millisecondPasted += 100;
         for (var point in this.pointsList) {
-          //point.move();
+          point.move();
         }
       });
     });
     // Repeat the animation
-    animationController.forward();
+    animationController.repeat();
   }
 
   @override
