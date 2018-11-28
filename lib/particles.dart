@@ -39,21 +39,21 @@ class ParticlesState extends State<Particles>
     animationController.addListener(() {
       setState(() {
         // Get new random direction for each point after 5s
-        if (millisecondPasted == 5000) {
-          for (var point in pointsList) {
-            point.getRandomDirection();
-          }
-          millisecondPasted = 0;
-        }
-        // Make the particle moves
-        millisecondPasted += 100;
-        for (var point in pointsList) {
-          point.move();
+        // if (millisecondPasted == 5000) {
+        //   for (var point in pointsList) {
+        //     point.getRandomDirection();
+        //   }
+        //   millisecondPasted = 0;
+        // }
+        // // Make the particle moves
+        // millisecondPasted += 100;
+        for (var point in this.pointsList) {
+          //point.move();
         }
       });
     });
     // Repeat the animation
-    animationController.repeat();
+    animationController.forward();
   }
 
   @override
@@ -64,6 +64,8 @@ class ParticlesState extends State<Particles>
 
   @override
   Widget build(BuildContext context) {
+    Particle.widgetHeight = MediaQuery.of(context).size.height;
+    Particle.widgetWidth = MediaQuery.of(context).size.width;
     return new CustomPaint(
       foregroundPainter: DisplayPoints(
         pointsList: pointsList,
