@@ -9,6 +9,8 @@ class Particle {
   final double size;
   double xDirection;
   double yDirection;
+  static double widgetWidth;
+  static double widgetHeight;
   Random random = new Random();
 
   Particle({
@@ -25,7 +27,8 @@ class Particle {
   }
 
   void move() {
-    this.xCoor += this.xDirection;
+    if (this.xCoor + this.xDirection > this.widgetWidth)
+      this.xCoor += this.xDirection;
     this.yCoor += this.yDirection;
   }
 }
