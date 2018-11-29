@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 import 'package:particle/particle.dart';
 import 'package:particle/drawPoints.dart';
+import 'dart:math';
 
 class Particles extends StatefulWidget {
   Particles({Key key}) : super(key: key);
@@ -15,30 +16,41 @@ class ParticlesState extends State<Particles>
   int millisecondPasted;
   Animation animation;
   AnimationController animationController;
-  Particle a = new Particle(
-    color: Colors.white,
-    xCoor: 200.0,
-    yCoor: 300.0,
-    opacity: 1.0,
-    size: 3.0,
-  );
+  Random random = new Random();
+
   List<Particle> pointsList = new List();
+
+  void addToPointList() {
+    for (int i = 1; i <= 5; i++) {
+      pointsList.add(
+        new Particle(
+          color: Colors.white,
+          xCoor: random.nextDouble() * 400 + 10,
+          yCoor: random.nextDouble() * 400 + 10,
+          opacity: 1.0,
+          size: random.nextDouble() * 3 + 3.0,
+        ),
+      );
+    }
+  }
 
   @override
   void initState() {
+    print("init");
     super.initState();
     animationController = AnimationController(
-      duration: Duration(milliseconds: 1000),
+      duration: Duration(milliseconds: 100),
       vsync: this,
     );
-    // Set sec pasted to 5000 so we can call getRandomDirection at the beginning
-    millisecondPasted = 10000;
+
     // Add the point the PointLists
-    pointsList.add(a);
-    // Get new random direction for each point after 5s
+    addToPointList();
+
+    // Init random direction to all the points
     for (var point in pointsList) {
       point.getRandomDirection();
     }
+
     // Add listener
     animationController.addListener(() {
       setState(() {
@@ -59,6 +71,7 @@ class ParticlesState extends State<Particles>
 
   @override
   Widget build(BuildContext context) {
+    print("build");
     Particle.widgetHeight = MediaQuery.of(context).size.height;
     Particle.widgetWidth = MediaQuery.of(context).size.width;
     return new CustomPaint(
