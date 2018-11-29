@@ -27,10 +27,12 @@ class Particle {
   }
 
   void move() {
-    if (this.xCoor + this.xDirection > Particle.widgetWidth) {
+    if (this.xCoor + this.xDirection > Particle.widgetWidth ||
+        this.xCoor + this.xDirection < 0) {
       this.xDirection = this.xDirection * (-1);
     }
-    if (this.yCoor + this.yDirection > Particle.widgetHeight) {
+    if (this.yCoor + this.yDirection > Particle.widgetHeight ||
+        this.yCoor + this.yDirection < 0) {
       this.yDirection = this.yDirection * (-1);
     }
     this.xCoor += this.xDirection;
