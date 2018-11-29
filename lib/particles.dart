@@ -39,7 +39,7 @@ class ParticlesState extends State<Particles>
     animationController.addListener(() {
       setState(() {
         // Get new random direction for each point after 5s
-        if (millisecondPasted == 5000) {
+        if (millisecondPasted == 10000) {
           for (var point in pointsList) {
             point.getRandomDirection();
           }
