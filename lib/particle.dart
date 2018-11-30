@@ -21,6 +21,7 @@ class Particle {
     this.size,
   });
 
+  void isNear(Particle anotherParticle) {}
   void getRandomDirection() {
     xDirection = random.nextDouble();
     yDirection = random.nextDouble();
