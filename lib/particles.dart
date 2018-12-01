@@ -57,6 +57,17 @@ class ParticlesState extends State<Particles>
       setState(() {
         for (var point in this.pointsList) {
           point.move();
+          for (var anotherPoint in this.pointsList) {
+            if (point.isNear(anotherPoint)) {
+              DrawLine(
+                x1: point.xCoor,
+                x2: point.yCoor,
+                y1: anotherPoint.xCoor,
+                y2: anotherPoint.yCoor,
+                color: point.color,
+              );
+            }
+          }
         }
       });
     });
