@@ -22,14 +22,14 @@ class ParticlesState extends State<Particles>
   List<Particle> pointsList = new List();
 
   void addToPointList() {
-    for (int i = 1; i <= 5; i++) {
+    for (int i = 1; i <= 20; i++) {
       pointsList.add(
         new Particle(
           color: Colors.white,
           xCoor: random.nextDouble() * 400 + 10,
           yCoor: random.nextDouble() * 400 + 10,
           opacity: 1.0,
-          size: random.nextDouble() * 3 + 3.0,
+          size: 3.0,
         ),
       );
     }
@@ -57,17 +57,6 @@ class ParticlesState extends State<Particles>
       setState(() {
         for (var point in this.pointsList) {
           point.move();
-          for (var anotherPoint in this.pointsList) {
-            if (point.isNear(anotherPoint)) {
-              DrawLine(
-                x1: point.xCoor,
-                x2: point.yCoor,
-                y1: anotherPoint.xCoor,
-                y2: anotherPoint.yCoor,
-                color: point.color,
-              );
-            }
-          }
         }
       });
     });

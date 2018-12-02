@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-const double CONNECT_DISTANCE = 5.0;
+const double CONNECT_DISTANCE = 100.0;
 
 class Particle {
   final Color color;
@@ -30,7 +30,7 @@ class Particle {
         (this.yCoor - anotherParticle.yCoor) *
             (this.yCoor - anotherParticle.yCoor);
 
-    if (distance <= CONNECT_DISTANCE) {
+    if (sqrt(distance) <= CONNECT_DISTANCE) {
       return true;
     }
     return false;
@@ -50,7 +50,7 @@ class Particle {
         this.yCoor + this.yDirection < 0) {
       this.yDirection = this.yDirection * (-1);
     }
-    this.xCoor += this.xDirection;
-    this.yCoor += this.yDirection;
+    this.xCoor += this.xDirection * 3.0;
+    this.yCoor += this.yDirection * 3.0;
   }
 }
