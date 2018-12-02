@@ -33,7 +33,9 @@ class DisplayPoints extends CustomPainter {
     // canvas.drawLine(secondParticle, firstParticle, line);
     // Draw the connect line
     for (int i = 0; i < this.pointsList.length; i++) {
-      for (int j = 0; j < this.pointsList.length; j++) {
+      for (int j = i + 1; j < this.pointsList.length; j++) {
+        Particle point = this.pointsList.elementAt(i);
+        Particle anotherPoint = this.pointsList.elementAt(j);
         if (point.isNear(anotherPoint)) {
           Offset firstParticle = new Offset(point.xCoor, point.yCoor);
           Offset secondParticle =
