@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 const double CONNECT_DISTANCE = 100.0;
+const double PARTICLE_SPEED = 3.0;
 
 class Particle {
   final Color color;
@@ -42,6 +43,7 @@ class Particle {
   }
 
   void move() {
+    // Make the particle bounce when it reaches the borders
     if (this.xCoor + this.xDirection > Particle.widgetWidth ||
         this.xCoor + this.xDirection < 0) {
       this.xDirection = this.xDirection * (-1);
@@ -50,7 +52,7 @@ class Particle {
         this.yCoor + this.yDirection < 0) {
       this.yDirection = this.yDirection * (-1);
     }
-    this.xCoor += this.xDirection * 3.0;
-    this.yCoor += this.yDirection * 3.0;
+    this.xCoor += this.xDirection * PARTICLE_SPEED;
+    this.yCoor += this.yDirection * PARTICLE_SPEED;
   }
 }
