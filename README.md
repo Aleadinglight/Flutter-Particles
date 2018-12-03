@@ -13,7 +13,7 @@ Add the dependencies needed to your `pubspec.yaml` file.
 Import the file
 
 ```dart
-import 'package:particles/particles.dart';
+import 'package:flutter_particles/particles.dart';
 ```
 
 Calling the widget
