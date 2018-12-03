@@ -48,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return new Particles(
       numParticle: 30,
+      particleColor: Colors.white,
     );
   }
 }

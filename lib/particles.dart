@@ -84,19 +84,3 @@ class ParticlesState extends State<Particles>
     );
   }
 }
-
-// class MovingParticle extends AnimatedWidget {
-//   final Particle a;
-
-//   MovingParticle({
-//     this.a,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     a.move();
-//     return new CustomPaint(
-//       foregroundPainter: a,
-//     );
-//   }
-// }
