@@ -14,6 +14,7 @@ class DisplayPoints extends CustomPainter {
     Paint line = new Paint();
     line.strokeCap = StrokeCap.round;
     line.color = pointsList.elementAt(0).color;
+
     // Draw all the particles
     for (var point in pointsList) {
       line.strokeWidth = point.size;
@@ -33,10 +34,7 @@ class DisplayPoints extends CustomPainter {
               new Offset(anotherPoint.xCoor, anotherPoint.yCoor);
           line.color = Colors.white;
           line.strokeWidth = 2.0;
-          print(firstParticle);
-          print(secondParticle);
           canvas.drawLine(firstParticle, secondParticle, line);
-          print("true");
         }
       }
     }

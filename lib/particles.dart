@@ -5,24 +5,26 @@ import 'package:particle/drawPoints.dart';
 import 'dart:math';
 
 class Particles extends StatefulWidget {
-  Particles({Key key}) : super(key: key);
+  final int numParticle;
+  Particles(
+    this.numParticle,
+  );
   @override
   ParticlesState createState() => new ParticlesState();
 }
 
 class ParticlesState extends State<Particles>
     with SingleTickerProviderStateMixin {
-  // When millisecondPasted reach a value, we change the particle direction
-  int millisecondPasted;
   Animation animation;
   AnimationController animationController;
   Random random = new Random();
 
-  List<Particle> pointsList = new List();
+  List<Particle> particlesList = new List();
 
-  void addToPointList() {
-    for (int i = 1; i <= 30; i++) {
-      pointsList.add(
+  void addToParticlesList() {
+    for (int i = 1; i <= widget.numParticle; i++) {
+      // Added particle to particlesList
+      particlesList.add(
         new Particle(
           color: Colors.white,
           xCoor: random.nextDouble() * 400 + 10,
@@ -44,18 +46,18 @@ class ParticlesState extends State<Particles>
     );
 
     // Add the point the PointLists
-    addToPointList();
+    addToParticlesList();
 
     // Init random direction to all the points
-    for (var point in pointsList) {
-      point.getRandomDirection();
+    for (var particle in particlesList) {
+      particle.getRandomDirection();
     }
 
     // Add listener
     animationController.addListener(() {
       setState(() {
-        for (var point in this.pointsList) {
-          point.move();
+        for (var particle in this.particlesList) {
+          particle.move();
         }
       });
     });
@@ -76,7 +78,7 @@ class ParticlesState extends State<Particles>
     Particle.widgetWidth = MediaQuery.of(context).size.width;
     return new CustomPaint(
       foregroundPainter: DisplayPoints(
-        pointsList: pointsList,
+        pointsList: particlesList,
       ),
     );
   }
