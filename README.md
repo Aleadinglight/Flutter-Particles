@@ -2,7 +2,8 @@
 
 A Flutter widget for creating particles.
 
-<img src="https://github.com/Aleadinglight/Flutter-Particle/blob/master/demo_gif/original.gif" width="250" />
+![Demo](../master/demo_gif/original.gif)
+
 
 ## Intallation
 
