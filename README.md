@@ -2,7 +2,7 @@
 
 A Flutter widget for creating particles.
 
-![Demo](../master/demo_gif/original.gif)
+![Demo](../master/demo_gif/gray.gif)
 
 
 ## Intallation
