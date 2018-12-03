@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_particle/particles.dart';
+import 'package:flutter_particles/particles.dart';
 
 void main() => runApp(new MyApp());
 

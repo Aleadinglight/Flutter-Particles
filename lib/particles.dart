@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
-import 'package:flutter_particle/particle.dart';
-import 'package:flutter_particle/draw_particles.dart';
+import 'package:flutter_particles/particle.dart';
+import 'package:flutter_particles/draw_particles.dart';
 import 'dart:math';
 
 class Particles extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_particle/particle.dart';
+import 'package:flutter_particles/particle.dart';
 
 class DisplayPoints extends CustomPainter {
   final List<Particle> particlesList;

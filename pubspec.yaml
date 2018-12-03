@@ -1,4 +1,4 @@
-name: flutter_particle
+name: flutter_particles
 description: A new Flutter package for creating particles background. This can be considered as the implementation of particle.js in Flutter.
 author: Tam Nguyen <huutamnguyen2302@gmail.com>
 homepage: https://github.com/Aleadinglight/Flutter-Particle
