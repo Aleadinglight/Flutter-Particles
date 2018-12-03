@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.orange[50],
+      backgroundColor: Colors.yellow[200],
       body: new Particles(
         30, // Number of Particles
         Colors.blue, // Color of Particles
