@@ -46,9 +46,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return new Particles(
-      numParticle: 30,
-      particleColor: Colors.white,
+    return new Scaffold(
+      backgroundColor: Colors.orange[50],
+      body: new Particles(
+        30, // Number of Particles
+        Colors.blue, // Color of Particles
+      ),
     );
   }
 }

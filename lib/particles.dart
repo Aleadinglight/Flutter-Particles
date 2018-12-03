@@ -40,7 +40,6 @@ class ParticlesState extends State<Particles>
 
   @override
   void initState() {
-    print("init");
     super.initState();
     animationController = AnimationController(
       duration: Duration(milliseconds: 100),
