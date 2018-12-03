@@ -1,38 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:particle/particle.dart';
-import 'dart:math';
 
 class DisplayPoints extends CustomPainter {
-  final List<Particle> pointsList;
+  final List<Particle> particlesList;
 
   DisplayPoints({
-    this.pointsList,
+    this.particlesList,
   });
 
   @override
   void paint(Canvas canvas, Size size) {
     Paint line = new Paint();
     line.strokeCap = StrokeCap.round;
-    line.color = pointsList.elementAt(0).color;
+    line.color = particlesList.elementAt(0).color;
 
     // Draw all the particles
-    for (var point in pointsList) {
-      line.strokeWidth = point.size;
-      Offset center = new Offset(point.xCoor, point.yCoor);
+    for (var particle in particlesList) {
+      line.strokeWidth = particle.size;
+      Offset center = new Offset(particle.xCoor, particle.yCoor);
       line.style = PaintingStyle.fill;
-      canvas.drawCircle(center, point.size, line);
+      canvas.drawCircle(center, particle.size, line);
     }
 
     // Draw the connect line
-    for (int i = 0; i < this.pointsList.length; i++) {
-      for (int j = i + 1; j < this.pointsList.length; j++) {
-        Particle point = this.pointsList.elementAt(i);
-        Particle anotherPoint = this.pointsList.elementAt(j);
-        if (point.isNear(anotherPoint)) {
-          Offset firstParticle = new Offset(point.xCoor, point.yCoor);
+    for (int i = 0; i < this.particlesList.length; i++) {
+      for (int j = i + 1; j < this.particlesList.length; j++) {
+        Particle particle = this.particlesList.elementAt(i);
+        Particle anotherParticle = this.particlesList.elementAt(j);
+        if (particle.isNear(anotherParticle)) {
+          Offset firstParticle = new Offset(particle.xCoor, particle.yCoor);
           Offset secondParticle =
-              new Offset(anotherPoint.xCoor, anotherPoint.yCoor);
-          line.color = Colors.white;
+              new Offset(anotherParticle.xCoor, anotherParticle.yCoor);
           line.strokeWidth = 2.0;
           canvas.drawLine(firstParticle, secondParticle, line);
         }

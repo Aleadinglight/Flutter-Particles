@@ -6,8 +6,10 @@ import 'dart:math';
 
 class Particles extends StatefulWidget {
   final int numParticle;
+  final Color particlesColor;
   Particles(
     this.numParticle,
+    this.particlesColor,
   );
   @override
   ParticlesState createState() => new ParticlesState();
@@ -26,7 +28,7 @@ class ParticlesState extends State<Particles>
       // Added particle to particlesList
       particlesList.add(
         new Particle(
-          color: Colors.white,
+          color: widget.particlesColor,
           xCoor: random.nextDouble() * 400 + 10,
           yCoor: random.nextDouble() * 400 + 10,
           opacity: 1.0,
@@ -77,7 +79,7 @@ class ParticlesState extends State<Particles>
     Particle.widgetWidth = MediaQuery.of(context).size.width;
     return new CustomPaint(
       foregroundPainter: DisplayPoints(
-        pointsList: particlesList,
+        particlesList: particlesList,
       ),
     );
   }
