@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 import 'package:particle/particle.dart';
-import 'package:particle/drawPoints.dart';
+import 'package:particle/drawParticles.dart';
 import 'dart:math';
 
 class Particles extends StatefulWidget {
@@ -73,7 +73,6 @@ class ParticlesState extends State<Particles>
 
   @override
   Widget build(BuildContext context) {
-    print("build");
     Particle.widgetHeight = MediaQuery.of(context).size.height;
     Particle.widgetWidth = MediaQuery.of(context).size.width;
     return new CustomPaint(
