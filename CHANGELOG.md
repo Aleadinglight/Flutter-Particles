@@ -1,0 +1,2 @@
+- Remove particle.opacity.
+- Added example.

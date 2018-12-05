@@ -31,7 +31,6 @@ class ParticlesState extends State<Particles>
           color: widget.particlesColor,
           xCoor: random.nextDouble() * 400 + 10,
           yCoor: random.nextDouble() * 400 + 10,
-          opacity: 1.0,
           size: 3.0,
         ),
       );

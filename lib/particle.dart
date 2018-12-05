@@ -8,7 +8,6 @@ class Particle {
   final Color color;
   double xCoor;
   double yCoor;
-  final double opacity;
   final double size;
   double xDirection;
   double yDirection;
@@ -20,7 +19,6 @@ class Particle {
     this.color,
     this.xCoor,
     this.yCoor,
-    this.opacity,
     this.size,
   });
 
