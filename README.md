@@ -37,4 +37,4 @@ class _MyHomePageState extends State<MyHomePage> {
 ## Demo
 
 ![Demo](../master/demo_gif/red.gif)
-![Demo](../master/demo_gif/blueyello.gif)
+![Demo](../master/demo_gif/blueyellow.gif)
