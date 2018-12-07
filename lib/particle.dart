@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-const double CONNECT_DISTANCE = 100.0;
-const double PARTICLE_SPEED = 3.0;
-
 class Particle {
   final Color color;
   double xCoor;
@@ -13,6 +10,8 @@ class Particle {
   double yDirection;
   static double widgetWidth;
   static double widgetHeight;
+  static double connectDistance = 100.0;
+  static double particlesSpeed = 3.0;
   Random random = new Random();
 
   Particle({
@@ -29,7 +28,7 @@ class Particle {
         (this.yCoor - anotherParticle.yCoor) *
             (this.yCoor - anotherParticle.yCoor);
 
-    if (sqrt(distance) <= CONNECT_DISTANCE) {
+    if (sqrt(distance) <= connectDistance) {
       return true;
     }
     return false;
@@ -50,7 +49,7 @@ class Particle {
         this.yCoor + this.yDirection < 0) {
       this.yDirection = this.yDirection * (-1);
     }
-    this.xCoor += this.xDirection * PARTICLE_SPEED;
-    this.yCoor += this.yDirection * PARTICLE_SPEED;
+    this.xCoor += this.xDirection * particlesSpeed;
+    this.yCoor += this.yDirection * particlesSpeed;
   }
 }
