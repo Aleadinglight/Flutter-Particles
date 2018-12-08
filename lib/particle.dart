@@ -11,7 +11,7 @@ class Particle {
   static double widgetWidth;
   static double widgetHeight;
   static double connectDistance = 100.0;
-  static double particlesSpeed = 3.0;
+  static double speedUp = 3.0;
   Random random = new Random();
 
   Particle({
@@ -35,8 +35,8 @@ class Particle {
   }
 
   void getRandomDirection() {
-    xDirection = random.nextDouble();
-    yDirection = random.nextDouble();
+    xDirection = random.nextDouble() * speedUp;
+    yDirection = random.nextDouble() * speedUp;
   }
 
   void move() {
@@ -49,7 +49,7 @@ class Particle {
         this.yCoor + this.yDirection < 0) {
       this.yDirection = this.yDirection * (-1);
     }
-    this.xCoor += this.xDirection * particlesSpeed;
-    this.yCoor += this.yDirection * particlesSpeed;
+    this.xCoor += this.xDirection;
+    this.yCoor += this.yDirection;
   }
 }
