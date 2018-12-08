@@ -1,14 +1,14 @@
 name: flutter_particles
 description: A new Flutter package for creating particles background. This can be considered as the implementation of particle.js in Flutter.
 author: Tam Nguyen <huutamnguyen2302@gmail.com>
-homepage: https://github.com/Aleadinglight/Flutter-Particle
+homepage: https://github.com/Aleadinglight/Flutter-Particles
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
 # Both the version and the builder number may be overridden in flutter
 # build by specifying --build-name and --build-number, respectively.
 # Read more about versioning at semver.org.
-version: 1.0.0+5
+version: 1.0.0+7
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
