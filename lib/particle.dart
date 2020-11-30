@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
 
 class Particle {
   final Color color;
@@ -10,15 +11,19 @@ class Particle {
   double yDirection;
   static double widgetWidth;
   static double widgetHeight;
-  static double connectDistance = 100.0;
-  static double speedUp = 3.0;
+  double connectDistance;
   Random random = new Random();
+  double minSpeed;
+  double maxSpeed;
 
   Particle({
     this.color,
     this.xCoor,
     this.yCoor,
     this.size,
+    this.connectDistance = 100.0,
+    this.minSpeed = 0.1,
+    this.maxSpeed = 3.0,
   });
 
   bool isNear(Particle anotherParticle) {
@@ -35,8 +40,8 @@ class Particle {
   }
 
   void getRandomDirection() {
-    xDirection = random.nextDouble() * speedUp;
-    yDirection = random.nextDouble() * speedUp;
+    xDirection = doubleInRange(minSpeed, maxSpeed);
+    yDirection = doubleInRange(minSpeed, maxSpeed);
   }
 
   void move() {
@@ -52,4 +57,7 @@ class Particle {
     this.xCoor += this.xDirection;
     this.yCoor += this.yDirection;
   }
+
+  double doubleInRange(double start, double end) =>
+      random.nextDouble() * (end - start) + start;
 }

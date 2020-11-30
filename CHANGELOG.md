@@ -1,3 +1,6 @@
+Version 1.0.8:
+- Particle size, stroke size, connect distance and speed are now configurable.
+
 Version 1.0.7:
 - Remove unnecessary file from package.
 - Change github homepage.
