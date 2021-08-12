@@ -1,16 +1,26 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/animation.dart';
-import 'package:flutter_particles/particle.dart';
-import 'package:flutter_particles/draw_particles.dart';
 import 'dart:math';
+
+import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_particles/draw_particles.dart';
+import 'package:flutter_particles/particle.dart';
 
 class Particles extends StatefulWidget {
   final int numParticle;
   final Color particlesColor;
-  Particles(
-    this.numParticle,
-    this.particlesColor,
-  );
+  final double strokeSize;
+  final double particleSize;
+  final double connectDistance;
+  final double minSpeed;
+  final double maxSpeed;
+
+  Particles(this.numParticle, this.particlesColor,
+      {this.particleSize = 3.0,
+      this.strokeSize = 2.0,
+      this.connectDistance = 100.0,
+      this.minSpeed = 0.1,
+      this.maxSpeed = 3.0});
+
   @override
   ParticlesState createState() => new ParticlesState();
 }
@@ -31,7 +41,10 @@ class ParticlesState extends State<Particles>
           color: widget.particlesColor,
           xCoor: random.nextDouble() * 400 + 10,
           yCoor: random.nextDouble() * 400 + 10,
-          size: 3.0,
+          size: widget.particleSize,
+          connectDistance: widget.connectDistance,
+          minSpeed: widget.minSpeed,
+          maxSpeed: widget.minSpeed,
         ),
       );
     }
@@ -78,6 +91,7 @@ class ParticlesState extends State<Particles>
     return new CustomPaint(
       foregroundPainter: DisplayPoints(
         particlesList: particlesList,
+        strokeSize: widget.strokeSize,
       ),
     );
   }

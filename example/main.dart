@@ -40,7 +40,7 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _MyHomePageStateCustom createState() => new _MyHomePageStateCustom();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -51,6 +51,24 @@ class _MyHomePageState extends State<MyHomePage> {
       body: new Particles(
         30, // Number of Particles
         Colors.blue, // Color of Particles
+      ),
+    );
+  }
+}
+
+class _MyHomePageStateCustom extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      backgroundColor: Colors.orange[50],
+      body: new Particles(
+        30, // Number of Particles
+        Colors.blue, // Color of Particles
+        particleSize: 5.0, //Size of Particles
+        strokeSize: 4.0, //Size of stroke between particles
+        connectDistance: 50.0, //Distance between particles to connect
+        minSpeed: 2, //Minimum speed of a particle
+        maxSpeed: 5, //Maximum speed of a particle
       ),
     );
   }

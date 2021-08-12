@@ -4,8 +4,11 @@ import 'package:flutter_particles/particle.dart';
 class DisplayPoints extends CustomPainter {
   final List<Particle> particlesList;
 
+  final double strokeSize;
+
   DisplayPoints({
     this.particlesList,
+    this.strokeSize,
   });
 
   @override
@@ -31,7 +34,7 @@ class DisplayPoints extends CustomPainter {
           Offset firstParticle = new Offset(particle.xCoor, particle.yCoor);
           Offset secondParticle =
               new Offset(anotherParticle.xCoor, anotherParticle.yCoor);
-          line.strokeWidth = 2.0;
+          line.strokeWidth = strokeSize;
           canvas.drawLine(firstParticle, secondParticle, line);
         }
       }
