@@ -27,11 +27,11 @@ class Particles extends StatefulWidget {
 
 class ParticlesState extends State<Particles>
     with SingleTickerProviderStateMixin {
-  Animation animation;
-  AnimationController animationController;
+  Animation? animation;
+  late AnimationController animationController;
   Random random = new Random();
 
-  List<Particle> particlesList = new List();
+  List<Particle> particlesList = [];
 
   void addToParticlesList() {
     for (int i = 1; i <= widget.numParticle; i++) {
