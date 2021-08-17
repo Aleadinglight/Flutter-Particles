@@ -1,16 +1,18 @@
+// ignore_for_file: unnecessary_statements
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 
 class Particle {
-  final Color color;
-  double xCoor;
-  double yCoor;
-  final double size;
-  double xDirection;
-  double yDirection;
-  static double widgetWidth;
-  static double widgetHeight;
+  final Color? color;
+  final double yCoor;
+  final double xCoor;
+  final double? size;
+  late double xDirection;
+  late double yDirection;
+  static late double widgetWidth;
+  static late double widgetHeight;
   double connectDistance;
   Random random = new Random();
   double minSpeed;
@@ -18,8 +20,8 @@ class Particle {
 
   Particle({
     this.color,
-    this.xCoor,
-    this.yCoor,
+    required this.xCoor,
+    required this.yCoor,
     this.size,
     this.connectDistance = 100.0,
     this.minSpeed = 0.1,
@@ -54,8 +56,8 @@ class Particle {
         this.yCoor + this.yDirection < 0) {
       this.yDirection = this.yDirection * (-1);
     }
-    this.xCoor += this.xDirection;
-    this.yCoor += this.yDirection;
+    this.xCoor + this.xDirection;
+    this.yCoor + this.yDirection;
   }
 
   double doubleInRange(double start, double end) =>
